@@ -16,19 +16,19 @@ class FormViewModel @Inject constructor(private val api: MyApiService, private v
     var name by mutableStateOf("loading")
         private set
 
-    init {
-        viewModelScope.launch {
-            if(networkChecker.isNetworkAvailable()) {
-                val response = api.getGreeting()
-                name = "finished"
-                if (response.isSuccessful) {
-                    name = response.body()?.title ?: ""
-                }
-            } else {
-                name = "no network"
-            }
-        }
-    }
+//    init {
+//        viewModelScope.launch {
+//            if(networkChecker.isNetworkAvailable()) {
+//                val response = api.getGreeting()
+//                name = "finished"
+//                if (response.isSuccessful) {
+//                    name = response.body()?.title ?: ""
+//                }
+//            } else {
+//                name = "no network"
+//            }
+//        }
+//    }
     // Update from UI
     fun onNameChanged(newName: String) {
         name = newName
